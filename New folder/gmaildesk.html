@@ -1,0 +1,465 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gmailclonepage</title>
+<!-- google font icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <style>
+
+        *{
+            margin: 0;
+        padding: 0;
+        }
+      .header_left img{
+        object-fit: contain;
+        height: 60px;
+        margin-left:5px;
+      }
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ border-bottom: 1px solid whitesmoke;
+}
+.header_left{
+    display: flex;
+    align-items: center;
+}
+.header_left span{
+    padding: 10px;
+    cursor: pointer;
+}
+.header_middle{
+    display: flex;
+    flex: 0.7;
+    align-items: center;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+}
+.material-icon{
+    color: gray;
+
+}
+.header_middle input{
+    border: none;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-size: medium;
+    background-color: transparent;
+}
+.header_right{
+    display: flex;
+    padding-right: 20px;
+}
+.header_right span{
+    padding: 10px;
+    cursor: pointer;
+}
+/* sidebar css goes in */
+.sidebar{
+    flex: 0.3;
+    max-width: 300px;
+    padding-right: 20px;
+
+}
+
+.sidebar_compose{
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    color: gray;
+    padding: 15px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.75)
+}
+.sidebar_compose span{
+    margin-right: 5px;
+}
+.sidebaroption{
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+    margin: 0 10px;
+    border-top-right-radius:20px ;
+
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    color: gray;
+}
+.sidebaroption .material-icons{
+    padding: 5px;
+}
+
+.sidebaroption h3{
+    flex: 1;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.sidebaroption:hover,
+.sidebaroption:hover h3,
+.sidebaroption:hover .material-icons,
+.sidebaroption_active,
+.sidebaroption_active h3,
+.sidebaroption_active .material-icons{
+    background-color: #fcecec;
+    color: #c04b37;
+    font-weight: 800;
+}
+.siderbar_footer{
+    display: flex;
+    justify-content: center;
+}
+.siderbar_footerIcons .material-icons{
+    margin: 7px;
+    cursor: pointer;
+}
+/* main body start */
+.main_body{
+    display: flex;
+    height: 100vh;
+}
+body{
+    height: 100vh;
+    overflow-y: hidden;
+}
+/* emaillist start */
+.emaillist{
+    flex: 1;
+    overflow: scroll;
+}
+.emaillist_settings{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid whitesmoke;
+    background-color: white;
+    z-index: 999;
+    padding: 8px;
+}
+.emaillist_settingsleft{
+    display: flex;
+    align-items: center;
+}
+.emaillist_settings .material-icons{
+margin: 5px;
+cursor: pointer;
+}
+.section{
+    display: flex;
+    align-items: center;
+    border-bottom-width: 2px;
+    padding: 15px;
+    min-width: 200px;
+    cursor: pointer;
+    color: gray;
+    border-width: 0;
+}
+.emaillist_sections{
+    position: sticky;
+    top: 0;
+    display: flex;
+    background-color: white;
+   border-bottom: 1px solid whitesmoke;
+    z-index: 999;
+}
+.section_selected{
+    background-color: whitesmoke;
+    border-width: 3px;
+    color: red;
+    border-bottom: 3px solid red;
+}
+.section_selected .material-icons{
+    color: red;
+
+}
+.section:hover{
+    background-color: whitesmoke;
+    border-width: 3px;
+}
+.section h4{
+    font-size: 14px;
+    margin-left:15px;
+}
+.emailrow_options{
+    display: flex;
+    align-items: center;
+}
+.emailrow_options .material-icons,input{
+    margin: 5px;
+}
+.emailrow{
+    display: flex;
+     align-items: center;
+     height: 50px;
+     border-bottom: 1px solid whitesmoke;
+     cursor: pointer;
+     z-index: 999;
+}
+.emailrow:hover{
+    border-top: 1px solid whitesmoke;
+    box-shadow: 0 4px 4px -2px rgba(0,0, 0,0.24) ;
+}
+.emailrow_message{
+    display: flex;
+    flex: 0.8;
+    align-items: center;
+    font-size: 13px;
+}
+.emailrow_message h4{
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left:5px ;
+    padding-right: 5px;
+}
+.emailrow_title{
+    font-size: 13px;
+    flex: 0.3;
+}
+.emailrow_time{
+    padding-right: 15px;
+    font-size: 10px;
+    font-weight: bold;
+}
+.emailrow_description{
+font-weight: 400;
+color: gray;
+}
+
+
+
+
+  
+
+    </style>
+ </head>
+ <body>
+    <!-- header start -->
+    <div class="header">
+ <div class="header_left">
+            <span class=" material-icons">menu</span>
+<img src="data:image/jpeg;base64,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" alt="">       
+ </div>
+<div class="header_middle">
+    <span class="material-icons">search</span>
+    <input type="text" placeholder="search mail">
+    <span class="material-icons">arrow_drop_down</span>
+
+</div>
+<div class="header_right">
+    <span class="material-icons">apps</span>
+    <span class="material-icons">notifications</span>
+    <span class="material-icons">account_circle</span>
+
+</div>
+
+    </div>
+    <!-- header end --> 
+    <!-- main body start --> 
+    <div class="main_body">
+        <!-- sidebar start --> 
+        <div class="sidebar">
+              <button class="sidebar_compose">
+                <span class="material-icons">add</span>compose</button>
+               <div class=" sidebaroption sidebaroption_active ">
+    <span class="material-icons">inbox</span><h3>Inbox</h3>
+               </div>
+               
+              <div class="sidebaroption ">
+            <span class="material-icons">star</span><h3>Starred</h3>
+                                       </div>
+            <div class="sidebaroption">
+           <span class="material-icons">access_time</span><h3>Snoozed</h3>
+            </div>
+             <div class="sidebaroption">
+             <span class="material-icons">label_important</span><h3>Important</h3>
+             </div>
+        <div class="sidebaroption">
+            <span class="material-icons">near_me</span><h3>sent</h3>
+             </div>
+         <div class="sidebaroption">
+             <span class="material-icons">note</span><h3>Draft</h3>
+              </div>
+              <div class="sidebaroption">
+                <span class="material-icons">expand_more</span><h3>More</h3>
+                           </div>
+        
+        <div class="sidebar_footer">
+            <div class="sidebar_footerIcons">
+                <span class="material-icons">person</span>
+                <span class="material-icons">duo</span>
+                <span class="material-icons">phone</span>
+
+            </div>
+            </div>
+        </div>
+        <!-- sidebsr end -->
+<!-- emaillist start -->
+<div class="emaillist">
+    <!-- settings starts -->
+    <div class="emaillist_settings">
+        <div class="emaillist_settingsleft">
+            <input type="checkbox">
+            <span class="material-icons"> arrow_drop_down</span>
+            <span class="material-icons"> redo</span>
+            <span class="material-icons"> more_vert</span>
+        </div>
+
+        <div class="emaillist_settingsright">
+            <span class="material-icons"> chevron_left</span>
+            <span class="material-icons"> chevron_right</span>
+            <span class="material-icons"> keyboard_hide</span>
+            <span class="material-icons"> settings</span>
+
+        </div>
+    </div>
+    <!-- settings ends -->
+    <!-- section start -->
+    <div class="emaillist_sections">
+        <div class="section section_selected">
+            <span class="material-icons "> inbox</span><h4>Primary</h4>
+        </div>
+        <div class="section ">
+            <span class="material-icons"> people</span><h4>Social</h4>
+        </div>
+        <div class="section ">
+            <span class="material-icons"> local_offer</span><h4>Promotions</h4>
+        </div>
+
+
+    </div>
+    <!-- section ends -->
+    <!-- email list row start -->
+    <div class="emaillist_list">
+        <!-- email row start -->
+        <div class="emailrow">
+            <div class="emailrow_options">
+                <input type="checkbox">
+                <span class="material-icons"> star_border</span>
+                <span class="material-icons"> label_important</span>
+            </div>
+            <h3 class="emailrow_title">Youtube</h3>
+
+            <div class="emailrow_message">
+                <h4>You got a new Suscriber <span class="emailrow_description"> - on your channel your vlogs</span></h4>
+            </div>
+            <p class="emailrow_time">10pm</p>
+        </div>
+        <div class="emailrow">
+            <div class="emailrow_options">
+                <input type="checkbox">
+                <span class="material-icons"> star_border</span>
+                <span class="material-icons"> label_important</span>
+            </div>
+            <h3 class="emailrow_title">LinkedIn</h3>
+
+            <div class="emailrow_message">
+                <h4>You got a new internship opportunity <span class="emailrow_description"> - it match with your description's</span></h4>
+            </div>
+            <p class="emailrow_time">8pm</p>
+        </div>
+        <div class="emailrow">
+            <div class="emailrow_options">
+                <input type="checkbox">
+                <span class="material-icons"> star_border</span>
+                <span class="material-icons"> label_important</span>
+            </div>
+            <h3 class="emailrow_title">Instagram</h3>
+
+            <div class="emailrow_message">
+                <h4>You have got new request <span class="emailrow_description"> - have almost similer followers</span></h4>
+            </div>
+            <p class="emailrow_time">5pm</p>
+        </div>
+        <div class="emailrow">
+            <div class="emailrow_options">
+                <input type="checkbox">
+                <span class="material-icons"> star_border</span>
+                <span class="material-icons"> label_important</span>
+            </div>
+            <h3 class="emailrow_title">Youtube</h3>
+
+            <div class="emailrow_message">
+                <h4>You got a new Suscriber <span class="emailrow_description"> - on your channel your vlogs</span></h4>
+            </div>
+            <p class="emailrow_time">4:30pm</p>
+        </div>
+        <div class="emailrow">
+            <div class="emailrow_options">
+                <input type="checkbox">
+                <span class="material-icons"> star_border</span>
+                <span class="material-icons"> label_important</span>
+            </div>
+            <h3 class="emailrow_title">Youtube</h3>
+
+            <div class="emailrow_message">
+                <h4>You got 2k+ views <span class="emailrow_description"> - on your channel your vlogs</span></h4>
+            </div>
+            <p class="emailrow_time">2pm</p>
+        </div>
+        <div class="emailrow">
+            <div class="emailrow_options">
+                <input type="checkbox">
+                <span class="material-icons"> star_border</span>
+                <span class="material-icons"> label_important</span>
+            </div>
+            <h3 class="emailrow_title">LinkedIn</h3>
+
+            <div class="emailrow_message">
+                <h4>You got a new job opportunity <span class="emailrow_description"> - it match with your suitable timing</span></h4>
+            </div>
+            <p class="emailrow_time">12pm</p>
+        </div>
+        <div class="emailrow">
+            <div class="emailrow_options">
+                <input type="checkbox">
+                <span class="material-icons"> star_border</span>
+                <span class="material-icons"> label_important</span>
+            </div>
+            <h3 class="emailrow_title">Facebook</h3>
+
+            <div class="emailrow_message">
+                <h4>You got like from priya <span class="emailrow_description"> - 20 like on your post</span></h4>
+            </div>
+            <p class="emailrow_time">12pm</p>
+        </div>
+        <div class="emailrow">
+            <div class="emailrow_options">
+                <input type="checkbox">
+                <span class="material-icons"> star_border</span>
+                <span class="material-icons"> label_important</span>
+            </div>
+            <h3 class="emailrow_title">Youtube</h3>
+
+            <div class="emailrow_message">
+                <h4>You got a new Suscriber <span class="emailrow_description"> - on your channel your vlogs</span></h4>
+            </div>
+            <p class="emailrow_time">10pm</p>
+        </div>
+        <!-- email row ends -->
+    </div>
+  <!-- emaillist row ends -->
+</div>
+
+
+<!-- emaillist ends -->
+</div>
+<!-- main body end -->
+</body>
+ </html>

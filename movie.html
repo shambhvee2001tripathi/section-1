@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<H1>SP PVR </H1>
+<form action="reservation.php" method="post">
+    <div class="elem-group">
+      <label style="color: rgba(255, 0, 119, 0.774);  " for="name">*  Your Name:</label>
+      <input type="text" id="name" name="visitor_name" placeholder="Shivendra Pratap" pattern=[A-Z\sa-z]{3,20} required>
+    </div
+  class="elem-group">
+      <br>
+    <label style= "color: darkred;"email">* E-mail:</label>
+      <input type="email" id="email" name="visitor_email" placeholder="abcd@email.com" required>
+    </>
+    <div class="elem-group">
+      <br>
+      <label style="color: rgb(183, 0, 255);" for="phone">*  Phone Num:</label>
+      <input type="tel" id="phone" name="visitor_phone" placeholder="123456789" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
+    </div>
+    <hr>
+    <div class=>
+      <br>
+      <label style="color: crimson;" for="adult">*  Adults:</label>
+      <input type="number" id="adult" name="total_adults" placeholder="8" min="1" required>
+    </div>
+    <div class=>
+      <br>
+      <label style= "color: rgb(139, 39, 0);"   for="child">*  Children:</label>
+      <input type="number" id="child" name="total_children" placeholder="0" min="0" required>
+    </div>
+    <div class=>
+      <br>
+      <label style="color: rgb(255, 0, 0);"  for="checkin-date">*  Check-in Date:</label>
+      <input type="date" id="checkin-date" name="checkin" required>
+    </div>
+    <br>
+    <label style="color: rgba(255, 0, 119, 0.774);>*  Movie Name:</label>
+    <select>
+        <option>*Kattar Hindu</option>
+        <option>*Bhagva</option>
+        </select>
+    
+    <div class="elem-group inlined">
+      <br>
+      <label style="color: rgb(255, 0, 0);"  for="checkout-date">*  Check-out Date:</label>
+      <input type="date" id="checkout-date" name="checkout" required>
+    </div>
+    <div class="elem-group">
+      <br>
+      <label class="my class" style= "background: darkgrey;" for="seat-selection">*  Select Seat Preference:</label>
+      <select id="seat-selection" name="seat_preference" required>
+          <option value="">*  Choose a seat from the List</option>
+          <option value="first class">first class</option>
+          <option value="second class">second class</option>
+          <option value="third class">third class</option>
+      </select>
+    </div>
+    <hr>
+    <div class="elem-group">
+  <table style="color: darkred;">*  AMOUNT:</table><input type="text">
+    </div>
+   <br>
+    <button style="color: darkslateblue;" type="submit">*Book The Ticket*</button>
+  </form>
+  <H2 style="color: red;"> THANK YOU 😃❣️👋 </H2>
+  
+</body>
+</head>

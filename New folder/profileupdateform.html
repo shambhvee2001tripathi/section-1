@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile update form</title>
+    <style>
+        .main{
+            height: 100vh;
+            margin: 10px 30px 10px 10px;
+            padding: 10px 10px 10px 10px;
+background-image: linear-gradient(0deg,white,aqua,blue);
+        }
+        .navbar{
+background-color: darkslategrey;            padding: 10px 10px 10px 10px;
+            margin-right: 20px;
+            margin-bottom: 5px;
+            height: 30px;
+            width: 100%;
+color: crimson;            border-radius: 5px;
+            font-size: larger;
+            font-weight: 1500;
+            font-style: normal;
+}
+        .content{
+
+            display: flex;
+            flex-direction: row;
+        justify-content: space-around;
+        }
+
+        .rightsidebar{
+background-color: black;   
+color: white;
+opacity: 95%;
+     width: 30%;
+            height: auto;
+            margin-top:5px ;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+
+        }
+        .leftsidebar{
+            background-color: black;
+            color: white;
+            opacity: 95%;
+  padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            width: 60%;
+            box-sizing: border-box;
+            border-radius: 5px;
+
+        }
+        .logo{
+            margin-top: 10px;
+          margin: auto;
+          display: block;
+          width: 200px;
+        }
+        .mybtn{
+            background-color: blue;
+            border-radius:5px;
+            color: bisque;
+            margin-top: 20px;
+            transition-duration: 300ms;
+            box-sizing: border-box;
+            box-shadow: white;
+
+        }
+        .mybtn:hover{
+            background-color: indianred;
+            transform:translateY(-5px) ;
+        }
+        .input{
+            box-sizing: border-box;
+bo
+            border-radius: 80px;
+        }
+        .h3{ align-items: center;
+        text-decoration: dotted;}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <pre> <em>HOME             SUPPORT                 LOGOUT    </em></pre>
+        </div>
+        <div class="content">
+        <div class="rightsidebar">
+            <img  class="logo" src="data:image/png;base64,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" alt="">
+           <h3>avtar</h3>
+            <br>
+            <label for="">BIO</label>
+            <input type="text" placeholder= "write something about yourself">
+
+          <h3>HOME</h3>
+          <h3>WORK</h3>
+          <h3>SUPPORT</h3>
+          <h3>SINGOUT</h3>
+
+        </div>
+        <div class="leftsidebar">
+            <form action="">
+                <h2>UPDATE YOUR PROFILE</h2>
+                <label for="">FIRST NAME-</label>
+                <input type="text" placeholder="your first name"><br><br>
+                <label for="">LAST NAME-</label>
+                <input type="text" placeholder="your last name"><br><br>
+                <label for="">EMAIL ADD.-</label>
+                <input type="email" placeholder="enter your email"><br><br>
+                <label for="">BIRTH DATE-</label>
+                <input type="date" placeholder="27/01/2001"><br><br>
+                <label for="">GENDER-</label><br>
+                <input type="radio">Female
+                <input type="radio">Male
+                <input type="radio">Other
+                <br><br>
+                <label for=""> CURRENT PASSWORD-</label>
+                <input type="password" placeholder=" enter previous password"><br><br>
+                <label for="">RESET PASSWORD-</label>
+                <input type="password" placeholder="enter new password"><br><br>
+                <input type="checkbox">Remember Me
+                <br>
+                <pre><button class="mybtn">SAVE CHANGE</button>        <button class="mybtn">RESET</button></pre>
+
+            </form>
+        </div>
+        </div>
+    </div>
+    
+</body>
+</html>
